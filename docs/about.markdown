@@ -4,15 +4,26 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+# Background
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Hi.  I'm Anthony.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+As I write this, the world is in the middle of the coronavirus pandemic.
+After almost six months at home, we're all a little tired of quarantine.
 
+That's probably why, over the past few weeks, I've had a few friends
+and family start looking for things to do.  I've been honored to have
+some of them ask me where to start learning data science, software development,
+or statistics.
 
-[jekyll-organization]: https://github.com/jekyll
+After you hear these questions a few times, you start thinking, "Hey, it may 
+easier to just write this up myself instead of doing all of this searching."
+At least, I did.
+
+I was wrong.
+
+# About This Blog
+
+This blog is targeted at new entrants into Data Science, interested laypeople,
+and Data Scientists looking for a fun read or a helpful reference.  My goal is
+to make the content simple, fun, and informative.  We'll see how that works out.
