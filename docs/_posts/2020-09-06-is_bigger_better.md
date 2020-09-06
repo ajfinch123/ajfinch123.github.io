@@ -9,12 +9,16 @@ categories: ML AI Unsupervised Compression
 
 It is axiomatic that bigger is better.
 
+<img src=/assets/img/unsplash_dream_big.jpg style="width:750px">
+
 I mean, who *doesn't* want a bigger paycheck, right?
 
 
 But what if - and you may have to sit down for this - what if it *wasn't*?
 
 # Bigger Sucks
+
+<img src=/assets/img/unsplash_big_sucks.jpg style="width:750px">
 
 Not to get into a social commentary here, but bigger things actually kind of suck.
 
@@ -42,13 +46,19 @@ Here are a few of the things we could try with our robot friends:
 
 * Find all the weird things.
 
+<img src=/assets/img/unsplash_outlier.jpg>
+
 In this strategy, we want our robots to go through every single thing that they find (all of the hay, lost toys, string, rodents, and possibly needles) in every single haystack.  Then, isolate all of the things that don't look like the others.  This is probably a really good strategy in this case, since our robots would have **a lot** of hay and not much else.  At the end, our robots might take us a pile of weird things that didn't look like hay, and we could sort through this much smaller pile to find our needles.
 
 * Take us one copy of every type of item.
 
+<img src= /assets/img/unsplash_fruits.jpg style="height:500px">
+
 This is a similar tactic to the last one, with a twist.  Here, we're going to ask the robots to put everything they find into arbitrary categories based on their characteristics.  Then, they can take us one example from each pile, and we can try looking in the most likely pile(s) for our needles.
 
 * Make us an ultra-precise map.
+
+<img src=/assets/img/unsplash_precise_map.jpg style="width:500px">
 
 This is a really weird, unintuitive idea.  Instead of have the robots find anything, we're going to have them go out and create a really, *really* nice map.  Then, we can scan the map visually to try and find a needle.  We may even be able to ask the robots to make anything which stands out look really big on the map, like a cartoon treasure map.
 
@@ -69,30 +79,3 @@ In *Honey, I Shrunk the Data*, we're going to review the third of these techniqu
 After that, we'll explore the creation of clusters in *The Brainy Bunch.*
 
 Finally, we'll look at how we can use unsupervised learning to detect anomalies in *Angels in the Outliers*.
-
-
-
-
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
-
-Jekyll requires blog post files to be named according to the following format:
-
-`YEAR-MONTH-DAY-title.MARKUP`
-
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
-
-Jekyll also offers powerful support for code snippets:
-
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
