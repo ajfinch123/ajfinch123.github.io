@@ -9,7 +9,7 @@ categories: ML AI Unsupervised Compression
 
 It is axiomatic that bigger is better.
 
-<img src=/assets/img/unsplash_dream_big.jpg style="width:750px">
+<img src="/assets/img/unsplash_dream_big.jpg" style="width:750px">
 
 I mean, who *doesn't* want a bigger paycheck, right?
 
@@ -18,7 +18,7 @@ But what if - and you may have to sit down for this - what if it *wasn't*?
 
 # Bigger Sucks
 
-<img src=/assets/img/unsplash_big_sucks.jpg style="width:750px">
+<img src="/assets/img/unsplash_big_sucks.jpg" style="width:750px">
 
 Not to get into a social commentary here, but bigger things actually kind of suck.
 
@@ -46,19 +46,19 @@ Here are a few of the things we could try with our robot friends:
 
 * Find all the weird things.
 
-<img src=/assets/img/unsplash_outlier.jpg>
+<img src="/assets/img/unsplash_outlier.jpg">
 
 In this strategy, we want our robots to go through every single thing that they find (all of the hay, lost toys, string, rodents, and possibly needles) in every single haystack.  Then, isolate all of the things that don't look like the others.  This is probably a really good strategy in this case, since our robots would have **a lot** of hay and not much else.  At the end, our robots might take us a pile of weird things that didn't look like hay, and we could sort through this much smaller pile to find our needles.
 
 * Take us one copy of every type of item.
 
-<img src= /assets/img/unsplash_fruits.jpg style="height:500px">
+<img src= "/assets/img/unsplash_fruits.jpg" style="height:500px">
 
 This is a similar tactic to the last one, with a twist.  Here, we're going to ask the robots to put everything they find into arbitrary categories based on their characteristics.  Then, they can take us one example from each pile, and we can try looking in the most likely pile(s) for our needles.
 
 * Make us an ultra-precise map.
 
-<img src=/assets/img/unsplash_precise_map.jpg style="width:500px">
+<img src="/assets/img/unsplash_precise_map.jpg" style="width:500px">
 
 This is a really weird, unintuitive idea.  Instead of have the robots find anything, we're going to have them go out and create a really, *really* nice map.  Then, we can scan the map visually to try and find a needle.  We may even be able to ask the robots to make anything which stands out look really big on the map, like a cartoon treasure map.
 
