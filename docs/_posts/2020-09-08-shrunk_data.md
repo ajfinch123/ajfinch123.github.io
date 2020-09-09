@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Honey, I Shrunk the Data"
+title:  "Honey, I Shrunk the Data2"
 date:   2020-09-08 20:00:27 +0000
 categories: ML AI Unsupervised Compression
 ---
@@ -27,7 +27,7 @@ For our analysis, we're going to make three sets of data, each of which is going
 
 ### Mapmakers, Mapmakers, Make Me Some Maps
 
-![](./img/pixabay_maps.jpg)
+![](/assets/img/pixabay_maps.jpg)
 
 Right now, we're looking for some algorithms which will help us to take these 4-dimensional datasets and crush them down into something smaller and more manageable.  For now, let's say that we want to get down to just 2 dimensions.  Fittingly, this operation is called *dimensionality reduction* or *compression*.  This is considered to be an *Unsupervised Learning* task because we don't have an external target that we're using to evaluate our algorithm.  It's important to understand that this **does not** mean that our algorithms are necessarily undirected.  We still have a clear goal in mind, it's just that our goal is defined within the dataset instead of requiring information about some external process or value.
 
@@ -179,7 +179,7 @@ sns.pairplot(df_1_test)
 
 
 
-![png](shrunk_data_files/shrunk_data_7_1.png)
+![png](/assets/img/shrunk_data_7_1.png)
 
 
 
@@ -195,7 +195,7 @@ sns.pairplot(df_2_test)
 
 
 
-![png](shrunk_data_files/shrunk_data_8_1.png)
+![png](/assets/img/shrunk_data_8_1.png)
 
 
 
@@ -211,12 +211,12 @@ sns.pairplot(df_3_test)
 
 
 
-![png](shrunk_data_files/shrunk_data_9_1.png)
+![png](/assets/img/shrunk_data_9_1.png)
 
 
 # Linear Dimensionality-Reduction: The Mathematics of PCA <a name='pca' />
 
-<img src = ./img/unsplash_line.jpg style="width:500px"></img>
+![](/assets/img/unsplash_line.jpg)
 
 Now that we have some data, let's examine some options for compressing that data.  The simplest (reasonable) compression algorithm is to use a linear transformation (matrix multiplication).  If you're new to matrix multiplication, it may feel a little unintuitive.  The core idea behind matrix multiplication is that we want to apply a series of linear equations to many data points.  
 
@@ -240,7 +240,7 @@ np.matrix(df_1).shape
 
 If you did take linear algebra, you'll probably remember doing a lot of matrix multiplication.  Remember that, when we multiply matrices, we multiply the **rows** of the first matrix by the **columns** of the second matrix.
 
-![](./img/mat_mult.jpg)
+![](/assets/img/mat_mult.jpg)
 
 For example, let's say that we have the matrix $A$ and another matrix $B$.
 
@@ -343,7 +343,7 @@ Unfortunately, we still have one requirement left:
 
 This last requirement is, in fact, an optimization task.  For the sake of brevity, I'm going to use the classic mathematics technique: ICBST (It Can Be Shown That) this is equal to the eigenvector decomposition of the centered, normalized sample covariance matrix.
 
-![](./img/icbst_squirrel.jpg)
+![](/assets/img/icbst_squirrel.jpg)
 
 Uh...  Did I just vomit math terms all over your clean floors?
 
@@ -442,7 +442,7 @@ fig.show()
 ```
 
 
-![png](shrunk_data_files/shrunk_data_28_0.png)
+![png](/assets/img/shrunk_data_28_0.png)
 
 
 Based on these graphs, we can conclude that PCA is able to capture some of the variability in the data, but it's far from flawless.  We can also use the mean squared error (MSE) as a numerical measure of how good our reconstruction is.  Note that 0 is perfect and the size of the error is based on the variance is the data, which is why we've normalized our data before computing the MSE.
@@ -487,7 +487,7 @@ fig.show()
 ```
 
 
-![png](shrunk_data_files/shrunk_data_33_0.png)
+![png](/assets/img/shrunk_data_33_0.png)
 
 
 PCA did *much* better with our second dataset!
@@ -528,7 +528,7 @@ fig.show()
 ```
 
 
-![png](shrunk_data_files/shrunk_data_37_0.png)
+![png](/assets/img/shrunk_data_37_0.png)
 
 
 
@@ -548,7 +548,7 @@ mean_squared_error(tmp_n.fit_transform(df_3_test.values), tmp_n.transform(recon_
 
 When we first introduced PCA, I waved my hands around and said 'MATH'.
 
-<img src ='./img/pixabay_its_math.jpg' style='width:700px'>
+![](/assets/img/pixabay_its_math.jpg)
 
 That wasn't a very satisfying way to learn about the technique, but deriving PCA from scratch would require us to cover lots of linear algebra topics (eigenvectors/values, covariance matrices, Lagrange multipliers).  Instead, we'll focus on a more intuitive way to understand PCA - using neural networks!
 
@@ -559,7 +559,7 @@ Eventually, I'll get around to making an introduction to neural networks as its 
 
 A 'neural network' involves lots of matrix multiplication.  We construct a set of 'layers', each consisting of a collection of weights (a vector) which we multiply by the outputs of the previous layer.  Let's look at an example.
 
-![A Simple Autoencoder](./img/autoenc_diagram.jpg)
+![A Simple Autoencoder](/assets/img/autoenc_diagram.jpg)
 
 
 This transformation is *exactly the same* as our PCA transformation!  It has the same number of variables and parameters, and the outputs in the middle (the 'PCA' transformation) should look very similar to our regular PCA transformation.
@@ -671,7 +671,7 @@ fig.show()
 ```
 
 
-![png](shrunk_data_files/shrunk_data_42_0.png)
+![png](/assets/img/shrunk_data_42_0.png)
 
 
 
@@ -709,7 +709,7 @@ After that, we set this problem up explicitly using TensorFlow, a package to opt
 
 **I'll admit it - I've tricked you.**
 
-<img src = ./img/unsplash_compression_man.jpg style="height:500px">
+![](/assets/img/unsplash_compression_man.jpg)
 
 While I presented our previous example as an easy way to understand PCA (and it is!), my primary motivation was to talk about neural networks.  See, one of the chief problems with PCA is that it assumes linear relationships between features.  The world is much more complex than that.
 
@@ -719,7 +719,7 @@ A much easier way to do this is to use a neural network, as we did above.  The e
 
 Let's take a look at what happens when we construct a slightly more complicated network.  While it may look a little scary, all you need to really know is that we use a nonlinear transformation to mess with the data a little bit between each of the layers.
 
-![A more complex and general autoencoder](./img/complex_autoenc_diagram.png)
+![A more complex and general autoencoder](/assets/img/complex_autoenc_diagram.png)
 
 
 ```python
@@ -805,7 +805,7 @@ fig.show()
 ```
 
 
-![png](shrunk_data_files/shrunk_data_48_0.png)
+![png](/assets/img/shrunk_data_48_0.png)
 
 
 
@@ -842,7 +842,7 @@ fig.show()
 ```
 
 
-![png](shrunk_data_files/shrunk_data_51_0.png)
+![png](/assets/img/shrunk_data_51_0.png)
 
 
 
