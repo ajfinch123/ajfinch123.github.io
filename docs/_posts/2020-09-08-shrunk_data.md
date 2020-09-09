@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "Honey, I Shrunk the Data"
+date:   2020-09-08 20:00:27 +0000
+categories: ML AI Unsupervised Compression
+---
+
 # Honey, I Shrunk the Data
 
 Anthony Finch
