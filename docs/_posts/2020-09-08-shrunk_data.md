@@ -879,6 +879,9 @@ fig.show()
 ```
 
 
+![png](/assets/img/shrunk_data_54_0.png)
+
+
 ```python
 tmp_n = Normalizer()
 mean_squared_error(tmp_n.fit_transform(df_3_test.values), tmp_n.transform(a_recon_3))
