@@ -887,6 +887,13 @@ tmp_n = Normalizer()
 mean_squared_error(tmp_n.fit_transform(df_3_test.values), tmp_n.transform(a_recon_3))
 ```
 
+
+
+        0.025418528329197162
+        
+        
+        
+        
 And for reference, let's do a side-by-side comparison of the risk scores.
 
 
@@ -899,6 +906,10 @@ print("Dataset 1 (Independent Variables)")
 print("PCA MSE: {pca}\nAE MSE:  {ae}".format(pca=pca_e, ae = ae_e))
 ```
 
+        Dataset 1 (Independent Variables)
+        PCA MSE: 0.08357674901301829
+        AE MSE:  0.030938843742726794
+
 
 ```python
 tmp_n = Normalizer()
@@ -910,6 +921,13 @@ print("PCA MSE: {pca}\nAE MSE:  {ae}".format(pca=pca_e, ae = ae_e))
 ```
 
 
+
+        Dataset 2 (Linearly Dependent Variables)
+        PCA MSE: 0.06831663813667951
+        AE MSE:  0.05316562486111817
+        
+        
+
 ```python
 tmp_n = Normalizer()
 pca_e = mean_squared_error(tmp_n.fit_transform(df_3_test.values), tmp_n.transform(recon_3))
@@ -918,6 +936,15 @@ ae_e = mean_squared_error(tmp_n.fit_transform(df_3_test.values), tmp_n.transform
 print("Dataset 3 (Non-Linearly Dependent Variables)")
 print("PCA MSE: {pca}\nAE MSE:  {ae}".format(pca=pca_e, ae = ae_e))
 ```
+
+
+
+        Dataset 3 (Non-Linearly Dependent Variables)
+        PCA MSE: 0.07517874827852346
+        AE MSE:  0.025418528329197162
+
+
+
 
 In all cases, our autoencoder did a significantly better job than Principal Components Analysis (using a raw MSE evaluation metric).  There were also some problems with our Autoencoder outputs (consider the strange tails occurring in F1 and F2 in dataset 1).  However, Autoencoders can be further improved by introducing more layers, better regularization, and other tools that are typically used to improve neural networks.
 

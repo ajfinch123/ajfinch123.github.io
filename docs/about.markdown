@@ -17,7 +17,7 @@ some of them ask me where to start learning data science, software development,
 or statistics.
 
 After you hear these questions a few times, you start thinking, "Hey, it may 
-easier to just write this up myself instead of doing all of this searching."
+be easier to just write this up myself instead of doing all of this searching."
 At least, I did.
 
 I was wrong.
