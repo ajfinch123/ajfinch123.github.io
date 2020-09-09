@@ -5,6 +5,8 @@ date:   2020-09-08 20:00:27 +0000
 categories: ML AI Unsupervised Compression
 ---
 
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 # Honey, I Shrunk the Data
 
 Anthony Finch
@@ -46,13 +48,13 @@ In this post, we'll explore two methods for solving this problem.  In the first 
 
 ### Table of Contents
 
-* <a href=#build>Building Testing Data</a>
-* <a href=#pca>The Mathematics of Principal Components</a>
-* <a href=#pca_net>PCA with Neural Networks</a>
-* <a href=#autoenc>Autoencoders</a>
-* <a href=#review>Review</a>
+* <a href="#build">Building Testing Data</a>
+* <a href="#pca">The Mathematics of Principal Components</a>
+* <a href="#pca_net">PCA with Neural Networks</a>
+* <a href="#autoenc">Autoencoders</a>
+* <a href="#review">Review</a>
 
-# Building A Dataset <a name='build' />
+# Building A Dataset <a id='build' />
 
 In this section, we're going to build three datasets.  You can read through the code if you're interested, but there aren't really any important concepts to cover here.  Feel free to <a href=#pca>skip to the next section!</a>
 
@@ -214,7 +216,7 @@ sns.pairplot(df_3_test)
 ![png](/assets/img/shrunk_data_9_1.png)
 
 
-# Linear Dimensionality-Reduction: The Mathematics of PCA <a name='pca' />
+# Linear Dimensionality-Reduction: The Mathematics of PCA <a id='pca' />
 
 ![](/assets/img/unsplash_line.jpg)
 
@@ -222,7 +224,7 @@ Now that we have some data, let's examine some options for compressing that data
 
 The idea of using a matrix is just a simple way to write down fewer numbers.  In reality, all we're doing is multiplying each of the features in our data by some coefficient and adding them all together.  We do this with multiple sets of coefficients to get different features.
 
-We can express our data as an $M$-dimensional dataset with $N$ points.  In our case, we have $N = 10000$ (our number of data points) and $M = 4$ (our number of features).  Fortunately for us, numpy can do all of our matrix multiplication, but let's quickly investigate how this works.
+We can express our data as an $$M$$-dimensional dataset with $$N$$ points.  In our case, we have $$N = 10000$$ (our number of data points) and $$M = 4$$ (our number of features).  Fortunately for us, numpy can do all of our matrix multiplication, but let's quickly investigate how this works.
 
 We'll express our data as an $N x M$ matrix ($N$ rows, $M$ columns).
 
@@ -544,7 +546,7 @@ mean_squared_error(tmp_n.fit_transform(df_3_test.values), tmp_n.transform(recon_
 
 
 
-# PCA Without the Tricks <a name='pca_net' />
+# PCA Without the Tricks <a id='pca_net' />
 
 When we first introduced PCA, I waved my hands around and said 'MATH'.
 
@@ -705,7 +707,7 @@ Originally, we used an analytical solution (PCA) to accomplish this task.  Howev
 
 After that, we set this problem up explicitly using TensorFlow, a package to optimize neural networks, to do this.  We found that the two solutions were very similar in their quality, although the TensorFlow problem won't always be as good because it isn't guranteed to be the very best solution.
 
-# Autoencoders <a name='autoenc' />
+# Autoencoders <a id='autoenc' />
 
 **I'll admit it - I've tricked you.**
 
@@ -889,7 +891,7 @@ mean_squared_error(tmp_n.fit_transform(df_3_test.values), tmp_n.transform(a_reco
 
 
 
-        0.025418528329197162
+    0.025418528329197162
         
         
         
@@ -906,9 +908,9 @@ print("Dataset 1 (Independent Variables)")
 print("PCA MSE: {pca}\nAE MSE:  {ae}".format(pca=pca_e, ae = ae_e))
 ```
 
-        Dataset 1 (Independent Variables)
-        PCA MSE: 0.08357674901301829
-        AE MSE:  0.030938843742726794
+    Dataset 1 (Independent Variables)
+    PCA MSE: 0.08357674901301829
+    AE MSE:  0.030938843742726794
 
 
 ```python
@@ -922,9 +924,9 @@ print("PCA MSE: {pca}\nAE MSE:  {ae}".format(pca=pca_e, ae = ae_e))
 
 
 
-        Dataset 2 (Linearly Dependent Variables)
-        PCA MSE: 0.06831663813667951
-        AE MSE:  0.05316562486111817
+    Dataset 2 (Linearly Dependent Variables)
+    PCA MSE: 0.06831663813667951
+    AE MSE:  0.05316562486111817
         
         
 
@@ -939,16 +941,16 @@ print("PCA MSE: {pca}\nAE MSE:  {ae}".format(pca=pca_e, ae = ae_e))
 
 
 
-        Dataset 3 (Non-Linearly Dependent Variables)
-        PCA MSE: 0.07517874827852346
-        AE MSE:  0.025418528329197162
+    Dataset 3 (Non-Linearly Dependent Variables)
+    PCA MSE: 0.07517874827852346
+    AE MSE:  0.025418528329197162
 
 
 
 
 In all cases, our autoencoder did a significantly better job than Principal Components Analysis (using a raw MSE evaluation metric).  There were also some problems with our Autoencoder outputs (consider the strange tails occurring in F1 and F2 in dataset 1).  However, Autoencoders can be further improved by introducing more layers, better regularization, and other tools that are typically used to improve neural networks.
 
-# Review <a name='review' />
+# Review <a id='review' />
 
 In this notebook, we set out to find ways to compress data by reducing the number of features that we had to deal with.  We decided that we wanted to evaluate our algorithms by building an inversion algorithm, which could reconstruct the original data.  Then, we could easily see how good our algorithm was.
 
