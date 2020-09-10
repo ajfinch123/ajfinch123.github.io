@@ -226,7 +226,7 @@ The idea of using a matrix is just a simple way to write down fewer numbers.  In
 
 We can express our data as an $$M$$-dimensional dataset with $$N$$ points.  In our case, we have $$N = 10000$$ (our number of data points) and $$M = 4$$ (our number of features).  Fortunately for us, numpy can do all of our matrix multiplication, but let's quickly investigate how this works.
 
-We'll express our data as an $N x M$ matrix ($N$ rows, $M$ columns).
+We'll express our data as an $$N x M$$ matrix ($$N$$ rows, $$M$$ columns).
 
 
 ```python
@@ -244,7 +244,7 @@ If you did take linear algebra, you'll probably remember doing a lot of matrix m
 
 ![](/assets/img/mat_mult.jpg)
 
-For example, let's say that we have the matrix $A$ and another matrix $B$.
+For example, let's say that we have the matrix $$A$$ and another matrix $$B$$.
 
 
 ```python
@@ -274,7 +274,7 @@ B
 
 
 
-If we want to multiply $A$ by $B$ (this is denoted $AB$), then we would multiply the first row of $A$ by the first column of $B$ to get the top-left value.  Then we'd multiply the first row of $A$ by the second column of $B$ to get the top right value, and so on.  It would look like this:
+If we want to multiply $$A$$ by $$B$$ (this is denoted $$AB$$), then we would multiply the first row of $$A$$ by the first column of $$B$$ to get the top-left value.  Then we'd multiply the first row of $$A$$ by the second column of $$B$$ to get the top right value, and so on.  It would look like this:
 
 $$AB = \left[\begin{array}[cc]] 1*5 + 2*7 & 1*6 + 2*8 \\ 3*5 + 4*7 & 3*6 + 4*8\end{array}\right]$$
 
@@ -321,7 +321,7 @@ np.matmul(A,C)
 
 
 
-Wait - we just *reduced the dimensionality* of $A$!
+Wait - we just *reduced the dimensionality* of $$A$$!
 
 Huzzah!  Let's go eat lunch.
 
@@ -334,7 +334,7 @@ $$ \alpha_1*x_1 + \alpha_2*x_2 = \text{Something valuable}$$
 
 That is, assuming we're trying to reduce to just a single dimension from two starting dimensions.
 
-The point is, we can find coefficients (in this case, $\alpha_1$ and $\alpha_2$) which will give us fewer dimensions.  This satisfies two of our conditions:
+The point is, we can find coefficients (in this case, $$\alpha_1$$ and $$\alpha_2$$) which will give us fewer dimensions.  This satisfies two of our conditions:
 
 1. The method takes our data as an input.
 2. It produces a smaller matrix than we started out with.
@@ -715,7 +715,7 @@ After that, we set this problem up explicitly using TensorFlow, a package to opt
 
 While I presented our previous example as an easy way to understand PCA (and it is!), my primary motivation was to talk about neural networks.  See, one of the chief problems with PCA is that it assumes linear relationships between features.  The world is much more complex than that.
 
-One way to solve for this problem is to use an extension to PCA called *Kernel PCA*.  This technique takes a non-linear transformation to the data and projects it into an inner product space (translation: it makes the data really big using some mathematical chicanery) and then performs PCA in that new space.  There are a few problems with this technique.  First of all, it's incredibly resource intensive - you have to construct a matrix of size $N x N$.  For reference, when I tried to do this for demonstration purposes on my machine, I got an error indicating that a 100k x 100k matrix would require more than 70 GB of space.  That just isn't practical for most problems.  The second problem (for us) is that KPCA isn't really invertible.  *In theory* you can train sometimes train an inverter to recover the original data, but in practice this isn't always the case.  
+One way to solve for this problem is to use an extension to PCA called *Kernel PCA*.  This technique takes a non-linear transformation to the data and projects it into an inner product space (translation: it makes the data really big using some mathematical chicanery) and then performs PCA in that new space.  There are a few problems with this technique.  First of all, it's incredibly resource intensive - you have to construct a matrix of size $$N x N$$.  For reference, when I tried to do this for demonstration purposes on my machine, I got an error indicating that a 100k x 100k matrix would require more than 70 GB of space.  That just isn't practical for most problems.  The second problem (for us) is that KPCA isn't really invertible.  *In theory* you can train sometimes train an inverter to recover the original data, but in practice this isn't always the case.  
 
 A much easier way to do this is to use a neural network, as we did above.  The example above is an extraordinarily simple example of an *autoencoder*, which is any neural network that learns to compess a dataset and then recover it again.  This can be incredibly useful, since it lets our network learn complex, nonlinear relationships in the data.  Of course, it can only do this if we use nonlinear transformation layers.
 
@@ -954,7 +954,7 @@ In all cases, our autoencoder did a significantly better job than Principal Comp
 
 In this notebook, we set out to find ways to compress data by reducing the number of features that we had to deal with.  We decided that we wanted to evaluate our algorithms by building an inversion algorithm, which could reconstruct the original data.  Then, we could easily see how good our algorithm was.
 
-We started by exploring linear transformations in the form of Principal Components Analysis (PCA).  This algorithm is an analytical solution to an optimization problem which uses a single linear transformation (matrix multiplication) to obtain a compressed dataset and a second linear transformation to reconstitute an approximation of our original dataset.  We demonstrated this to be the case byy training a neural network with only linear layers that performed the same task, and we saw that the results of both solutions were similarly successful.
+We started by exploring linear transformations in the form of Principal Components Analysis (PCA).  This algorithm is an analytical solution to an optimization problem which uses a single linear transformation (matrix multiplication) to obtain a compressed dataset and a second linear transformation to reconstitute an approximation of our original dataset.  We demonstrated this to be the case by training a neural network with only linear layers that performed the same task, and we saw that the results of both solutions were similarly successful.
 
 We then introduced an alteration to our PCA neural network in which we used several nonlinear transformations (along with several large hidden layers) in order to obtain a better compression.
 
