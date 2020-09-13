@@ -5,6 +5,8 @@ date:   2020-09-13 20:00:27 +0000
 categories: ML AI Unsupervised Compression Word2Vec Application
 ---
 
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 # Acting Out
 
 Anthony Finch
@@ -21,7 +23,7 @@ Before we move on to today's topic, let's review some of these basic concepts an
 
 **Dimensionality Reduction** is a sub-class of unsupervised learning algorithms which focuses on squishing information from many features into a smaller number of features.
 
-**Clustering** is another sub-class of unsupervised learning, which is actually derived from dimensionality reduction.
+**Clustering** is another sub-class of unsupervised learning, which focuses on identifying groups of similar objects or data points.
 
 **Anomaly Detection** is the final sub-class of unsupervised learning applications, which focuses on detecting outliers.
 
@@ -36,7 +38,7 @@ In *Honey, I Shrunk the Data*, we discussed two dimensionality-reduction techniq
 
 ![](/assets/img/dim_red.jpg>)
 
-Some algorithms don't follow this pattern (e.g. [T-SNE](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding) and [KPCA](https://en.wikipedia.org/wiki/Kernel_principal_component_analysis); however, this pattern is easily understandable and widely used.  More complicated techniques attempt to accomplish similar results using slightly different optimization metrics.
+Some algorithms don't follow this pattern (e.g. [T-SNE](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding) and [KPCA](https://en.wikipedia.org/wiki/Kernel_principal_component_analysis)); however, this pattern is easily understandable and widely used.  More complicated techniques attempt to accomplish similar results using slightly different optimization metrics.
 
 ### Dimensionality Reduction in Practice
 
@@ -99,7 +101,7 @@ This is, in fact, a solution that was first [proposed by some researchers at Goo
 
 # Custom Implementation of Word2Vec
 
-Below, we're going to use our `fake_PCA()` code from last week to implement a Word2Vec transformer.  Our transformer is going to build its own dictionary or words (it can't map words it hasn't seen before), then use a simple linear transformation down to a small, 2-dimensional representation to embed the words.  Then, it will use another simple linear transformation to predict the 'missing' word based on the context.
+Below, we're going to use our `fake_PCA()` code from last week to implement a Word2Vec transformer.  Our transformer is going to build its own dictionary of words (it can't map words it hasn't seen before), then use a simple linear transformation down to a small, 2-dimensional representation to embed the words.  Then, it will use another simple linear transformation to predict the 'missing' word based on the context.
 
 This isn't really a transformer that's ready for 'prime time.'  It doesn't use a lot of nice features that other packages (particularly [Gensim](https://radimrehurek.com/gensim/)) have implemented; however, it is extremely simple to interact with this transformer and understand how it works.  To train effectively the same model, but with a much better (if more opaque) implementation, use Gensim's [Word2Vec](https://radimrehurek.com/gensim/models/word2vec.html) model with the `sg = 0` parameter setting.
 
@@ -304,15 +306,15 @@ w2v.transform(['hello', 'world'])
 
 Before moving on, it's important to note a few things about using these kinds of features in language modeling.
 
-1. It takes a **ton** of data to train models effectively for human language.
+* It takes a **ton** of data to train models effectively for human language.
 
 Seriously.  Google originally trained their model with 783 **million** words, and it took them a full day of training.
 
-2. Google (and others) have already solved this problem.
+* Google (and others) have already solved this problem.
 
 Fortunately for us plebs, many researchers have [publicly released their trained models](https://radimrehurek.com/gensim/auto_examples/howtos/run_downloader_api.html).  This means that we don't have to train our own word embeddings if we want to use this trick for NLP.
 
-3. Models don't know every single word.
+* Models don't know every single word.
 
 If a model hasn't seen a word before (or if that word is misspelled, or slightly different from what it's seen before, or if it hasn't seen it often enough), then it can't give you any information on that word.
 
@@ -690,7 +692,7 @@ a2v.wv.most_similar('Scarlett Johansson')
 
 Okay, so maybe we were a bit premature to assume that the algorithm *necessarily* learned something about gender.  Here, we're seeing some big-name actors, plus a few that I, at least, don't recognize.  No offense, but who's [Glenn Morshower](https://www.imdb.com/name/nm0607703/)?
 
-Let's use the `min_count` parameter to get rid of actors who haven't appeared in at least 20 movies.  Note that this squishes us down from almost 4000 actors to about 1300.
+Let's use the `min_count` parameter to get rid of actors who haven't appeared in at least 10 movies.  Note that this squishes us down from almost 4000 actors to about 1300.
 
 
 ```python
@@ -747,10 +749,10 @@ plt.scatter(plot_data[:,0],plot_data[:,1])
 
 
 
-![png](acting_out_files/acting_out_30_1.png)
+![png](/assets/img/acting_out_30_1.png)
 
 
-It looks like there are some really interesting things going on in that space.
+It looks like there are some really interesting things going on in that space...
 
 # Coming Up Next Time...
 
